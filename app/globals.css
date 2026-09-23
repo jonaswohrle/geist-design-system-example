@@ -1,0 +1,50 @@
+@import '@vercel/geistcn/tailwind.css';
+@import '@vercel/geistcn/styles.css';
+
+/* Tailwind v4 ignores node_modules during automatic content detection, so we
+   explicitly register the design-system package as a source. This ensures the
+   utility classes used inside @vercel/geistcn's components are generated. */
+@source "../node_modules/@vercel/geistcn";
+
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}
+
+body,
+html {
+  background: var(--ds-background-100);
+  color: var(--ds-gray-1000);
+}
+
+.hero-grid {
+  background-image: linear-gradient(var(--ds-gray-alpha-100) 1px, transparent 1px), linear-gradient(90deg, var(--ds-gray-alpha-100) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+.preview-grid {
+  background-image: radial-gradient(var(--ds-gray-alpha-300) 0.75px, transparent 0.75px);
+  background-size: 16px 16px;
+}
+
+.skip-link {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 50;
+  transform: translateY(-200%);
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  background: var(--ds-background-100);
+  color: var(--ds-gray-1000);
+  box-shadow: var(--ds-focus-ring);
+}
+
+.skip-link:focus-visible {
+  transform: translateY(0);
+}
